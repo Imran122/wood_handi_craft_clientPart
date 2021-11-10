@@ -10,6 +10,8 @@ import {
 import NavigationBar from './components/shared/NavigationBar/NavigationBar';
 import Registration from './components/Authentication/Registration/Registration';
 import LogIn from './components/Authentication/LogIn/LogIn';
+import AllProducts from './components/Products/AllProducts/AllProducts';
+
 function App() {
   return (
     <div >
@@ -21,6 +23,9 @@ function App() {
           </Route>
           <Route exact path="/home">
             <Home></Home>
+          </Route>
+          <Route path="/allproducts">
+            <AllProducts></AllProducts>
           </Route>
           <Route path="/registration">
             <Registration></Registration>

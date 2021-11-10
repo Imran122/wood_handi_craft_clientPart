@@ -29,6 +29,9 @@ const NavigationBar = () => {
                         <NavLink className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold" to="/home">Home</NavLink>
                     </li>
                     <li class="border-t md:border-none">
+                        <NavLink className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold" to="/allproducts">Products</NavLink>
+                    </li>
+                    <li class="border-t md:border-none">
                         <NavLink className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold" to="/registration">SignUp</NavLink>
                     </li>
                     <li class="border-t md:border-none">
