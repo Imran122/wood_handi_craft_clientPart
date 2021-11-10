@@ -5,7 +5,7 @@ const Banner = () => {
     return (
 
 
-        <div class="md:flex items-center justify-around py-12">
+        <div class="md:flex items-center justify-around py-12 hero-banner">
             <div>
                 <h1 className="text-3xl font-bold uppercase">
                     <span>I-Craft </span>

@@ -2,7 +2,7 @@ import React from 'react';
 import './NavigationBar.css'
 import logo from '../.../../../../images/header/logo.png'
 
-import Banner from '../../Home/Banner/Banner';
+
 import { NavLink } from 'react-router-dom';
 const NavigationBar = () => {
     function toggleMenu() {
@@ -12,7 +12,7 @@ const NavigationBar = () => {
         }
     };
     return (
-        <div className="hero-banner">
+        <div className="">
             <nav class="nav flex flex-wrap items-center justify-between px-4">
                 <div class="flex flex-no-shrink items-center mr-6 py-3 text-grey-darkest">
 
@@ -29,7 +29,7 @@ const NavigationBar = () => {
                         <NavLink className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold" to="/home">Home</NavLink>
                     </li>
                     <li class="border-t md:border-none">
-                        <NavLink className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold" to="/register">SignUp</NavLink>
+                        <NavLink className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold" to="/registration">SignUp</NavLink>
                     </li>
                     <li class="border-t md:border-none">
                         <NavLink className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold" to="/login">LogIn</NavLink>
@@ -39,7 +39,7 @@ const NavigationBar = () => {
 
                 </ul>
             </nav>
-            <Banner></Banner>
+
         </div>
     );
 };

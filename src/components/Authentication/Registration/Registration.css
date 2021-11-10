@@ -1,0 +1,7 @@
+.authentication-bg {
+  background-image: url("../../../images/header/banner2.jpg");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

@@ -22,10 +22,10 @@ function App() {
           <Route exact path="/home">
             <Home></Home>
           </Route>
-          <Route exact path="/home">
+          <Route path="/registration">
             <Registration></Registration>
           </Route>
-          <Route exact path="/home">
+          <Route path="/login">
             <LogIn></LogIn>
           </Route>
         </Switch>
