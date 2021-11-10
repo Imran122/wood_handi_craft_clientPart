@@ -1,8 +1,7 @@
 import React from 'react';
 import './NavigationBar.css'
 import logo from '../.../../../../images/header/logo.png'
-import menu from '../../../images/header/menu-squared-2.png'
-import close from '../../../images/header/close-window.png'
+
 import Banner from '../../Home/Banner/Banner';
 import { NavLink } from 'react-router-dom';
 const NavigationBar = () => {
@@ -13,24 +12,34 @@ const NavigationBar = () => {
         }
     };
     return (
-        <div className="hero-banner lg:h-5/6">
-            <header className="h-full">
-                <nav className="flex flex-wrap items-center justify-between">
-                    <img className="w-40 h-16" src={logo} alt="" />
-                    <div className="flex md:hidden">
-                        <button onClick={toggleMenu}>
-                            <img className="toggle block" src={menu} width="40" height="40" alt="" />
-                            <img className="toggle hidden" src={close} width="40" height="40" alt="" />
-                        </button>
-                    </div>
-                    <div className="toggle hidden w-full md:w-auto md:flex text-right text-bold mt-5 md:mt-0 border-t-2 border-blue-900 md:border-none font-customFont uppercase text-xl">
-                        <NavLink to="/home">Home</NavLink>
+        <div className="hero-banner">
+            <nav class="nav flex flex-wrap items-center justify-between px-4">
+                <div class="flex flex-no-shrink items-center mr-6 py-3 text-grey-darkest">
 
-                    </div>
-                    <a href="#" className="toggle hidden md:flex text-white w-full md:w-auto px-4 py-2 text-right bg-custom-bg hover:bg-myCustom hover:text-black md:rounded font-customFont text-xl">Create Account</a>
-                </nav>
-                <Banner></Banner>
-            </header>
+                    <img className="w-52 h-14" src={logo} alt="" />
+                </div>
+
+                <input class="menu-btn hidden" type="checkbox" id="menu-btn" />
+                <label class="menu-icon block cursor-pointer md:hidden px-2 py-4 relative select-none" for="menu-btn">
+                    <span class="navicon bg-grey-darkest flex items-center relative"></span>
+                </label>
+
+                <ul class="menu border-b md:border-none flex justify-end list-reset m-0 w-full md:w-auto">
+                    <li class="border-t md:border-none">
+                        <NavLink className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold" to="/home">Home</NavLink>
+                    </li>
+                    <li class="border-t md:border-none">
+                        <NavLink className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold" to="/register">SignUp</NavLink>
+                    </li>
+                    <li class="border-t md:border-none">
+                        <NavLink className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold" to="/login">LogIn</NavLink>
+                    </li>
+
+
+
+                </ul>
+            </nav>
+            <Banner></Banner>
         </div>
     );
 };

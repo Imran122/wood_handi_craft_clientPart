@@ -8,6 +8,8 @@ import {
   Link
 } from "react-router-dom";
 import NavigationBar from './components/shared/NavigationBar/NavigationBar';
+import Registration from './components/Authentication/Registration/Registration';
+import LogIn from './components/Authentication/LogIn/LogIn';
 function App() {
   return (
     <div >
@@ -20,8 +22,12 @@ function App() {
           <Route exact path="/home">
             <Home></Home>
           </Route>
-
-
+          <Route exact path="/home">
+            <Registration></Registration>
+          </Route>
+          <Route exact path="/home">
+            <LogIn></LogIn>
+          </Route>
         </Switch>
         <Footer></Footer>
       </Router>
