@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
-import { useParams } from 'react-router';
+import { useParams, useHistory } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 const Purchase = () => {
+    const history = useHistory()
     const { user } = useAuth()
     const [product, setProduct] = useState({})
     const { id } = useParams();
+    //order status
+    const [status, setStatus] = useState(false)
     //successful message set
     const [orderSuccess, setOrderSuccess] = useState(false)
     //initial store data 
@@ -31,7 +34,7 @@ const Purchase = () => {
     }
     //send order data to the DB
     const orderSubmit = e => {
-        const newOrder = { ...orderInfo, product: product.name, price: product.price }
+        const newOrder = { ...orderInfo, product: product.name, price: product.price, status }
         fetch('http://localhost:5000/orderlist', {
             method: 'POST',
             headers: {
@@ -44,12 +47,14 @@ const Purchase = () => {
                 if (data.insertedId) {
                     setOrderSuccess(true)
                     e.target.reset()
+                    history.push(`/allproducts`)
                 }
             })
         e.preventDefault();
     }
     return (
         <>
+
             <div className="flex items-center min-h-screen bg-gray-50">
                 <div className="flex-1 h-full max-w-4xl mx-auto bg-white rounded-lg shadow-xl">
                     <div className="flex flex-col md:flex-row">
@@ -61,8 +66,8 @@ const Purchase = () => {
                         <div className="flex items-center justify-center p-6 sm:p-12 md:w-1/2 mt-10">
                             <div className="w-full">
                                 {orderSuccess &&
-                                    <button type="button" class="bg-rose-600 text-green-500" disabled>
-                                        <svg class="animate-spin h-5 w-5 mr-3 " viewBox="0 0 24 24">
+                                    <button type="button" className="bg-rose-600 text-green-500" disabled>
+                                        <svg className="animate-spin h-5 w-5 mr-3 " viewBox="0 0 24 24">
 
                                         </svg>
                                         Placed Order Successfully
@@ -136,7 +141,9 @@ const Purchase = () => {
                                     <hr className="my-8" />
 
 
-                                    <div className="flex items-center justify-center gap-4">
+                                    <div className="flex items-center justify-center gap-4"
+
+                                    >
 
 
                                     </div>

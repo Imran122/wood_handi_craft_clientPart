@@ -1,11 +1,15 @@
 import React from 'react';
 import useOrders from '../../../hooks/useOrders';
-import img from "../../../images/body/article.jpg";
+import Footer from '../../shared/Footer/Footer';
+import NavigationBar from '../../shared/NavigationBar/NavigationBar';
 import ProductData from '../ProductData/ProductData';
 const AllProducts = () => {
     const [products, setProducts] = useOrders();
+
+
     return (
-        <div>
+        <>
+            <NavigationBar></NavigationBar>
             <section>
                 <div className="container mx-auto px-6 py-20">
 
@@ -14,6 +18,7 @@ const AllProducts = () => {
                         {products.map(product => <ProductData
                             key={product._id}
                             product={product}
+
                         >
 
                         </ProductData>)
@@ -23,7 +28,8 @@ const AllProducts = () => {
                     </div>
                 </div>
             </section>
-        </div>
+            <Footer></Footer>
+        </>
     );
 };
 
