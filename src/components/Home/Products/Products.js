@@ -5,6 +5,7 @@ import Product from "../Product/Product";
 const Products = () => {
     const [products, setProducts] = useOrders();
     const productsItems = products.slice(0, 6)
+
     return (
         <>
             <section>
