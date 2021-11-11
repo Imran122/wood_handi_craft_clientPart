@@ -5,7 +5,7 @@ import logInImg from '../../../images/body/login.jpg'
 
 const LogIn = () => {
     const [loginData, setLoginData] = useState({})
-    const { user, loginUser, isLoading, authError } = useAuth()
+    const { user, loginUser, isLoading, authError, signInWithGoogle } = useAuth()
     //to redirevt the previous pages
     const location = useLocation()
     const history = useHistory()
@@ -24,6 +24,11 @@ const LogIn = () => {
         loginUser(loginData.email, loginData.password, location, history)
         e.preventDefault();
     }
+    //google signin metyhod
+    const handelGoogleSignIn = () => {
+        signInWithGoogle(location, history);
+    }
+
     return (
         <>
             <div class="mx-auto mt-28 mb-28 authentication-bg">
@@ -93,7 +98,7 @@ const LogIn = () => {
                                         </button>
                                         <hr class="my-6 border-gray-300 w-full" />
 
-                                        <button type="button" class="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
+                                        <button onClick={handelGoogleSignIn} type="button" class="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
                                             <div class="flex items-center justify-center h-6">
                                                 <img src="https://img.icons8.com/color/48/000000/google-logo.png" />
                                                 <span class="ml-4">
@@ -101,6 +106,7 @@ const LogIn = () => {
                                                     with
                                                     Google</span>
                                             </div>
+
                                         </button>
                                     </div>
                                     <hr class="mb-6 border-t" />

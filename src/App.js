@@ -13,6 +13,7 @@ import LogIn from './components/Authentication/LogIn/LogIn';
 import AllProducts from './components/Products/AllProducts/AllProducts';
 import AuthProvider from './context/AuthProvider/AuthProvider';
 import PrivateRoute from './components/Authentication/PrivateRoute/PrivateRoute';
+import Purchase from './components/Purchase/Purchase';
 
 function App() {
   return (
@@ -27,9 +28,12 @@ function App() {
             <Route exact path="/home">
               <Home></Home>
             </Route>
-            <PrivateRoute path="/allproducts">
-              <AllProducts></AllProducts>
+            <PrivateRoute exact path="/purchase/:id">
+              <Purchase></Purchase>
             </PrivateRoute>
+            <Route path="/allproducts">
+              <AllProducts></AllProducts>
+            </Route>
             <Route path="/registration">
               <Registration></Registration>
             </Route>

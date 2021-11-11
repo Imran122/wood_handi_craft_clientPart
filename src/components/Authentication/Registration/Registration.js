@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import logInImg from '../../../images/body/login.jpg'
 import './Registration.css'
 import useAuth from '../../../hooks/useAuth';
 const Registration = () => {
     const [loginData, setLoginData] = useState({})
+    const history = useHistory()
     const { user, registerUser, isLoading, authError } = useAuth()
 
-    const handelOnChange = e => {
+    const handelOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
         const newLoginData = { ...loginData }
@@ -23,7 +24,7 @@ const Registration = () => {
             return;
         }
         //submitttingconsole.log(loginData.email, loginData.password)
-        registerUser(loginData.email, loginData.password)
+        registerUser(loginData.email, loginData.password, loginData.name, history)
         e.preventDefault();
     }
     return (
@@ -55,6 +56,19 @@ const Registration = () => {
                                 <form onSubmit={handelLogInSubmit} className=" px-8 pt-6 pb-8 mb-4 bg-white rounded">
                                     <div className="mb-4">
                                         <label className="block mb-2 text-sm font-bold text-gray-700" for="username">
+                                            Name
+                                        </label>
+                                        <input
+                                            className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+
+                                            type="text"
+                                            name="name"
+                                            onBlur={handelOnBlur}
+                                            placeholder="Your Name"
+                                        />
+                                    </div>
+                                    <div className="mb-4">
+                                        <label className="block mb-2 text-sm font-bold text-gray-700" for="username">
                                             Email
                                         </label>
                                         <input
@@ -62,7 +76,7 @@ const Registration = () => {
 
                                             type="email"
                                             name="email"
-                                            onBlur={handelOnChange}
+                                            onBlur={handelOnBlur}
                                             placeholder="Your Email"
                                         />
                                     </div>
@@ -74,7 +88,7 @@ const Registration = () => {
                                             className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 
                                             name="password"
-                                            onBlur={handelOnChange}
+                                            onBlur={handelOnBlur}
                                             type="password"
                                             placeholder="your password"
                                         />
@@ -89,7 +103,7 @@ const Registration = () => {
 
                                             type="password"
                                             name="password2"
-                                            onBlur={handelOnChange}
+                                            onBlur={handelOnBlur}
                                             placeholder="Re-type your password"
                                         />
                                         <p className="text-xs italic text-red-500">Please choose a password.</p>

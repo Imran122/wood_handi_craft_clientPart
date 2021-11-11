@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import initializeFirebase from "../components/Authentication/Firebase/firebase.initialize";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, updateProfile } from "firebase/auth";
 //initalize firebase app
 initializeFirebase()
 const useFirebase = () => {
@@ -9,12 +9,52 @@ const useFirebase = () => {
     const auth = getAuth();
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
-    const registerUser = (email, password) => {
+
+
+    //google login system
+    const googleProvider = new GoogleAuthProvider();
+    //google signing method
+    const signInWithGoogle = (location, history) => {
+        setIsLoading(true);
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+
+                const user = result.user;
+                //saveUser(user.email, user.displayName, 'PUT')
+                setAuthError('')
+                const destination = location?.state?.from || '/';
+                history.replace(destination)
+
+            }).catch((error) => {
+                setAuthError(error.message);
+            })
+            .finally(() => setIsLoading(false))
+    }
+
+
+
+
+
+    //register with email password
+
+    const registerUser = (email, password, name, history) => {
         setIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
 
                 setAuthError('');
+                const newUser = { email, displayName: name }
+                setUser(newUser)
+                //update profile data to firebase
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
+
+                }).catch((error) => {
+
+                })
+
+                history.replace('/')
 
             })
             .catch((error) => {
@@ -79,7 +119,8 @@ const useFirebase = () => {
         logOut,
         loginUser,
         isLoading,
-        authError
+        authError,
+        signInWithGoogle
     }
 }
 export default useFirebase;
