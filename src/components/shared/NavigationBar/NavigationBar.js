@@ -1,16 +1,13 @@
 import React from 'react';
 import './NavigationBar.css'
 import logo from '../.../../../../images/header/logo.png'
-
-
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 const NavigationBar = () => {
-    function toggleMenu() {
-        const navToggle = document.getElementsByClassName("toggle");
-        for (let i = 0; i < navToggle.length; i++) {
-            navToggle.item(i).classList.toggle("hidden");
-        }
-    };
+
+    const { user, logOut } = useAuth()
+
+
     return (
         <div className="">
             <nav class="nav flex flex-wrap items-center justify-between px-4">
@@ -31,12 +28,22 @@ const NavigationBar = () => {
                     <li class="border-t md:border-none">
                         <NavLink className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold" to="/allproducts">Products</NavLink>
                     </li>
-                    <li class="border-t md:border-none">
-                        <NavLink className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold" to="/registration">SignUp</NavLink>
-                    </li>
-                    <li class="border-t md:border-none">
-                        <NavLink className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold" to="/login">LogIn</NavLink>
-                    </li>
+                    {user?.email ?
+
+                        <li class="border-t md:border-none">
+                            <button onClick={logOut} className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold">logout</button>
+                        </li>
+                        :
+                        <>
+                            <li class="border-t md:border-none">
+                                <NavLink className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold" to="/registration">SignUp</NavLink>
+                            </li>
+                            <li class="border-t md:border-none">
+                                <NavLink className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold" to="/login">LogIn</NavLink>
+                            </li>
+                        </>
+                    }
+
 
 
 
