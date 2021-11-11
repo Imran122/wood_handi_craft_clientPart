@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import logInImg from '../../../images/body/login.jpg'
 
 const LogIn = () => {
     const [loginData, setLoginData] = useState({})
     const { user, loginUser, isLoading, authError } = useAuth()
+    //to redirevt the previous pages
+    const location = useLocation()
+    const history = useHistory()
+
+
     const handelOnChange = e => {
         const field = e.target.name;
         const value = e.target.value;
@@ -16,7 +21,7 @@ const LogIn = () => {
 
     }
     const handelLogInSubmit = e => {
-        loginUser(loginData.email, loginData.password)
+        loginUser(loginData.email, loginData.password, location, history)
         e.preventDefault();
     }
     return (

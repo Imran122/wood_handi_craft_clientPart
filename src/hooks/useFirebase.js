@@ -20,7 +20,7 @@ const useFirebase = () => {
             .catch((error) => {
 
                 setAuthError(error.message)
-                console.log(error.message);
+
 
             })
             .finally(() => setIsLoading(false))
@@ -29,11 +29,12 @@ const useFirebase = () => {
 
 
     //signIn function for user signin
-    const loginUser = (email, password) => {
+    const loginUser = (email, password, location, history) => {
         setIsLoading(true)
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-
+                const destination = location?.state?.from || '/';
+                history.replace(destination)
                 setAuthError('');
 
             })

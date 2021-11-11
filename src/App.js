@@ -12,6 +12,7 @@ import Registration from './components/Authentication/Registration/Registration'
 import LogIn from './components/Authentication/LogIn/LogIn';
 import AllProducts from './components/Products/AllProducts/AllProducts';
 import AuthProvider from './context/AuthProvider/AuthProvider';
+import PrivateRoute from './components/Authentication/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -26,9 +27,9 @@ function App() {
             <Route exact path="/home">
               <Home></Home>
             </Route>
-            <Route path="/allproducts">
+            <PrivateRoute path="/allproducts">
               <AllProducts></AllProducts>
-            </Route>
+            </PrivateRoute>
             <Route path="/registration">
               <Registration></Registration>
             </Route>
