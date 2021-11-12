@@ -16,6 +16,8 @@ import MakeAdmin from '../makeAdmin/MakeAdmin';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../Authentication/AdminRoute/AdminRoute';
 import AddProduct from '../AddProduct/AddProduct';
+import ManageOrders from '../ManageOrders/ManageOrders';
+import AdminHome from '../AdminHome/AdminHome';
 
 
 const Dashboard = () => {
@@ -27,11 +29,7 @@ const Dashboard = () => {
             <div className="relative min-h-screen md:flex" data-dev-hint="container">
                 <input type="checkbox" id="menu-open" className="hidden" />
 
-                <label htmlFor="menu-open" className="absolute right-2 bottom-2 shadow-lg rounded-full p-2 bg-gray-100 text-gray-600 md:hidden" data-dev-hint="floating action button">
-                    <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </label>
+
 
                 <header className="bg-gray-600 text-gray-100 flex justify-between md:hidden" data-dev-hint="mobile menu bar">
                     <a href="#" className="block p-4 text-white font-bold whitespace-nowrap truncate">
@@ -89,6 +87,9 @@ const Dashboard = () => {
                                     <Link to={`${url}/addProduct`} className="flex items-center space-x-2 py-2 px-4 transition duration-200 hover:bg-gray-700 hover:text-white">
                                         <span className="ml-6">Add Product</span>
                                     </Link>
+                                    <Link to={`${url}/manageOrders`} className="flex items-center space-x-2 py-2 px-4 transition duration-200 hover:bg-gray-700 hover:text-white">
+                                        <span className="ml-6">Manage Orders</span>
+                                    </Link>
                                 </>
                             }
 
@@ -103,11 +104,15 @@ const Dashboard = () => {
                     <div className="max-w-7xl mx-auto">
 
                         <div className="px-4 py-6 sm:px-0">
-                            <div className="border-4 border-dashed border-gray-200 rounded-lg h-full">
+                            <div className="border-4 border-dashed border-gray-200 rounded-lg h-5/6">
 
                                 <Switch>
                                     <Route exact path={path}>
-                                        <MyOrder></MyOrder>
+                                        {admin ?
+                                            <AdminHome></AdminHome>
+                                            :
+                                            <MyOrder></MyOrder>
+                                        }
 
                                     </Route>
 
@@ -119,6 +124,9 @@ const Dashboard = () => {
                                     </AdminRoute>
                                     <AdminRoute path={`${path}/addProduct`}>
                                         <AddProduct></AddProduct>
+                                    </AdminRoute>
+                                    <AdminRoute path={`${path}/manageOrders`}>
+                                        <ManageOrders></ManageOrders>
                                     </AdminRoute>
                                 </Switch>
 
