@@ -1,0 +1,9 @@
+.form-main {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-product-button {
+  width: 100%;
+}

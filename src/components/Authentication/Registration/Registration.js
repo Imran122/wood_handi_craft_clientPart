@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import logInImg from '../../../images/body/login.jpg'
 import './Registration.css'
 import useAuth from '../../../hooks/useAuth';
 const Registration = () => {
     const [loginData, setLoginData] = useState({})
+    //to redirevt the previous pages
+    const location = useLocation()
     const history = useHistory()
-    const { user, registerUser, isLoading, authError } = useAuth()
+    const { user, registerUser, isLoading, authError, signInWithGoogle } = useAuth()
+
 
     const handelOnBlur = e => {
         const field = e.target.name;
@@ -26,6 +29,11 @@ const Registration = () => {
         //submitttingconsole.log(loginData.email, loginData.password)
         registerUser(loginData.email, loginData.password, loginData.name, history)
         e.preventDefault();
+    }
+
+    //google signin metyhod
+    const handelGoogleSignIn = () => {
+        signInWithGoogle(location, history);
     }
     return (
         <>
@@ -118,7 +126,7 @@ const Registration = () => {
                                         </button>
                                         <hr className="my-6 border-gray-300 w-full" />
 
-                                        <button type="button" className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
+                                        <button onClick={handelGoogleSignIn} type="button" className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
                                             <div className="flex items-center justify-center h-6">
                                                 <img src="https://img.icons8.com/color/48/000000/google-logo.png" />
                                                 <span className="ml-4">

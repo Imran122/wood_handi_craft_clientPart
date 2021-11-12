@@ -9,8 +9,8 @@ const useFirebase = () => {
     const auth = getAuth();
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
-
-
+    //declare a state to checking admin or not for dashboard
+    const [admin, setAdmin] = useState(false);
     //google login system
     const googleProvider = new GoogleAuthProvider();
     //google signing method
@@ -21,6 +21,7 @@ const useFirebase = () => {
 
                 const user = result.user;
                 //saveUser(user.email, user.displayName, 'PUT')
+                saveUser(user.email, user.displayName, 'PUT')
                 setAuthError('')
                 const destination = location?.state?.from || '/';
                 history.replace(destination)
@@ -45,6 +46,8 @@ const useFirebase = () => {
                 setAuthError('');
                 const newUser = { email, displayName: name }
                 setUser(newUser)
+                //save User to mongo Db
+                saveUser(email, name, 'POST')
                 //update profile data to firebase
                 updateProfile(auth.currentUser, {
                     displayName: name
@@ -102,6 +105,13 @@ const useFirebase = () => {
         return () => unsubscribe;
     }, [])
 
+    //using useEffect to check and call api for checking user is admin or not
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(response => response.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
     //signout function code
     const logOut = () => {
         setIsLoading(true)
@@ -113,6 +123,17 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false))
     }
 
+    //save user to mongo DB
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
+
     return {
         user,
         registerUser,
@@ -120,7 +141,9 @@ const useFirebase = () => {
         loginUser,
         isLoading,
         authError,
-        signInWithGoogle
+        signInWithGoogle,
+        saveUser,
+        admin
     }
 }
 export default useFirebase;

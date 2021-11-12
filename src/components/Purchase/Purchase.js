@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import { useParams, useHistory } from 'react-router';
 import useAuth from '../../hooks/useAuth';
+import Footer from '../shared/Footer/Footer';
+import NavigationBar from '../shared/NavigationBar/NavigationBar';
 const Purchase = () => {
     const history = useHistory()
     const { user } = useAuth()
@@ -54,7 +56,7 @@ const Purchase = () => {
     }
     return (
         <>
-
+            <NavigationBar></NavigationBar>
             <div className="flex items-center min-h-screen bg-gray-50">
                 <div className="flex-1 h-full max-w-4xl mx-auto bg-white rounded-lg shadow-xl">
                     <div className="flex flex-col md:flex-row">
@@ -154,6 +156,7 @@ const Purchase = () => {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </>
     );
 };
