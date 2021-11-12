@@ -6,7 +6,7 @@ const MakeReview = () => {
     //successful message set
     const [reviewSuccess, setReviewSuccess] = useState(false)
     //initial store data 
-    const initialInfo = { displayName: user.displayName, email: user.email, message: '', photoURL: user.photoURL }
+    const initialInfo = { displayName: user.displayName, email: user.email, reviewAmount: '', message: '', photoURL: user.photoURL }
     //save data in state
     const [reviewInfo, setReviewInfo] = useState(initialInfo)
     const handleOnBlur = e => {
@@ -22,7 +22,7 @@ const MakeReview = () => {
     //send review data to the DB
     const reviewSubmit = e => {
         const newReview = { ...reviewInfo }
-        console.log(newReview);
+
         fetch('http://localhost:5000/reviews', {
             method: 'POST',
             headers: {
@@ -60,7 +60,7 @@ const MakeReview = () => {
                             <div className="flex flex-wrap -m-2">
                                 <div className="p-2 w-1/2">
                                     <div className="">
-                                        <label for="name" className="leading-7 text-sm text-gray-600">Name</label>
+                                        <label className="leading-7 text-sm text-gray-600">Name</label>
                                         <input type="text" id="name" name="name" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                                             defaultValue={user.displayName} disabled
                                         />
@@ -68,15 +68,23 @@ const MakeReview = () => {
                                 </div>
                                 <div className="p-2 w-1/2">
                                     <div className="">
-                                        <label for="email" className="leading-7 text-sm text-gray-600">Email</label>
+                                        <label className="leading-7 text-sm text-gray-600">Email</label>
                                         <input type="email" id="email" name="email" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                                             defaultValue={user.email} disabled
                                         />
                                     </div>
                                 </div>
                                 <div className="p-2 w-full">
+                                    <div className="w-full">
+                                        <label className="leading-7 text-sm text-gray-600">Review in 1 to 5</label>
+                                        <input type="text" name="reviewAmount" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                            onBlur={handleOnBlur}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="p-2 w-full">
                                     <div className="">
-                                        <label for="message" className="leading-7 text-sm text-gray-600">Message</label>
+                                        <label className="leading-7 text-sm text-gray-600">Message</label>
                                         <textarea id="message" name="message" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                                             onBlur={handleOnBlur}
                                         ></textarea>

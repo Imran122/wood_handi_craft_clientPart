@@ -29,6 +29,7 @@ const ManageOrders = () => {
                 })
         }
     }
+    console.log(ordersAll)
     //method for change status pending to shiped
     const handelShipedOrder = id => {
 
@@ -114,11 +115,9 @@ const ManageOrders = () => {
                                         <td className="py-4 px-6 border-b border-gray-200 text-gray-900 text-sm ">
                                             <div className="flex items-center" classes="[object Object]">
                                                 <div className="flex-shrink-0 h-10 w-10">
-                                                    {user?.photoURL ?
-                                                        <img src={user.photoURL} alt="" className="w-full h-full rounded-full" />
-                                                        :
-                                                        <img src={defaultImg} alt="" className="w-full h-full rounded-full" />
-                                                    }
+
+                                                    <img src={defaultImg} alt="" className="w-full h-full rounded-full" />
+
 
                                                 </div>
                                                 <div className="ml-3">

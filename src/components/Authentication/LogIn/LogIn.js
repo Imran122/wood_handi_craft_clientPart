@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import logInImg from '../../../images/body/login.jpg'
+import Footer from '../../shared/Footer/Footer';
+import NavigationBar from '../../shared/NavigationBar/NavigationBar';
 
 const LogIn = () => {
     const [loginData, setLoginData] = useState({})
@@ -31,106 +33,106 @@ const LogIn = () => {
 
     return (
         <>
-            <div className="mx-auto mt-28 mb-28 authentication-bg">
-                <div className="flex justify-center items-center h-screen px-6">
+            <NavigationBar></NavigationBar>
 
-                    <div className="w-full xl:w-3/4 lg:w-11/12 flex">
-
-                        <div
-                            className=""
-
-                        >
-                            <img className="w-full lg:h-4/5 bg-gray-400 hidden lg:block lg:w-3/4 lg:mt-16 bg-cover rounded-l-lg" src={logInImg} alt="" />
+            <div className="flex items-center min-h-screen bg-gray-50">
+                <div className="flex-1 h-full max-w-4xl mx-auto bg-white rounded-lg shadow-xl">
+                    <div className="flex flex-col md:flex-row">
+                        <div className="h-32 md:h-auto md:w-1/2">
+                            <img className="object-cover w-full h-full" src={logInImg}
+                                alt="img" />
                         </div>
+                        <div className="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
+                            <div className="w-full">
+                                <div className="flex justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-20 h-20 text-blue-600" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                                        <path
+                                            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                                    </svg>
+                                    {user?.email &&
+                                        <p>user logedin successfully</p>
+                                    }
+                                    {authError &&
+                                        <p>{authError}</p>
+                                    }
+                                </div>
+                                {!isLoading &&
+                                    <form onSubmit={handelLogInSubmit}>
 
-                        <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+                                        <h1 className="mb-4 text-2xl font-bold text-center text-gray-700">
+                                            Login to Your Account
+                                        </h1>
+                                        <div>
+                                            <label className="block text-sm">
+                                                Email
+                                            </label>
+                                            <input type="email"
+                                                name="email"
+                                                onChange={handelOnChange}
+                                                className="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                                placeholder="Your email" />
+                                        </div>
+                                        <div>
+                                            <label className="block mt-4 text-sm">
+                                                Password
+                                            </label>
+                                            <input
+                                                name="password"
+                                                onChange={handelOnChange}
+                                                className="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                                placeholder="Your password" type="password" />
+                                        </div>
+                                        <p className="mt-4">
+                                            <NavLink to="/registration" className="text-sm text-blue-600 hover:underline" >
+                                                Don't Have Account?
+                                            </NavLink>
+                                        </p>
 
-                            {user?.email &&
-                                <p>user created successfully</p>
-                            }
-                            {authError &&
-                                <p>{authError}</p>
-                            }
 
-                            <h3 className="pt-4 text-2xl text-center">Welcome Back!</h3>
-
-                            {!isLoading &&
-                                <form onSubmit={handelLogInSubmit} className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
-                                    <div className="mb-4">
-                                        <label className="block mb-2 text-sm font-bold text-gray-700" for="username">
-                                            Email
-                                        </label>
-                                        <input
-                                            className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                            id="username"
-                                            type="email"
-                                            name="email"
-                                            onChange={handelOnChange}
-                                            placeholder="Your Email"
-                                        />
-                                    </div>
-                                    <div className="mb-4">
-                                        <label className="block mb-2 text-sm font-bold text-gray-700" for="password">
-                                            Password
-                                        </label>
-                                        <input
-                                            className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                            id="password"
-                                            type="password"
-                                            name="password"
-                                            onChange={handelOnChange}
-                                            placeholder="******************"
-                                        />
-                                        <p className="text-xs italic text-red-500">Please choose a password.</p>
-                                    </div>
-                                    <div className="mb-4">
-                                        <input className="mr-2 leading-tight" type="checkbox" id="checkbox_id" />
-                                        <label className="text-sm" for="checkbox_id">
-                                            Remember Me
-                                        </label>
-                                    </div>
-                                    <div className="mb-6 text-center">
                                         <button
-                                            className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                                             type="submit"
+                                            className="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
                                         >
-                                            Sign In
+                                            Log in
                                         </button>
-                                        <hr className="my-6 border-gray-300 w-full" />
+                                    </form>
+                                }
+                                {isLoading &&
+                                    <button type="button" className="bg-rose-600 ..." disabled>
+                                        <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
 
-                                        <button onClick={handelGoogleSignIn} type="button" className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
-                                            <div className="flex items-center justify-center h-6">
-                                                <img src="https://img.icons8.com/color/48/000000/google-logo.png" />
-                                                <span className="ml-4">
-                                                    Log in
-                                                    with
-                                                    Google</span>
-                                            </div>
-
-                                        </button>
-                                    </div>
-                                    <hr className="mb-6 border-t" />
-                                    <div className="text-center">
-
-                                        <NavLink to="/registration">
-                                            <button
-                                                className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-
-                                            >
-                                                Create an Account!
-                                            </button>
-                                        </NavLink>
-                                    </div>
-
-                                </form>
-                            }
+                                        </svg>
+                                        Processing
+                                    </button>
+                                }
+                                <hr className="my-8" />
 
 
+                                <div className="flex items-center justify-center gap-4">
+                                    <button onClick={handelGoogleSignIn} type="button" className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
+                                        <div className="flex items-center justify-center h-6">
+                                            <img src="https://img.icons8.com/color/48/000000/google-logo.png" />
+                                            <span className="ml-4">
+                                                Log in
+                                                with
+                                                Google</span>
+                                        </div>
+
+                                    </button>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+
+            <Footer></Footer>
         </>
     );
 };
