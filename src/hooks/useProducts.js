@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const useOrders = () => {
+const useProducts = () => {
     //set data in services
     const [products, setProducts] = useState([])
     //fetch data from fajedb json file
@@ -13,4 +13,4 @@ const useOrders = () => {
     return [products, setProducts]
 }
 
-export default useOrders;
+export default useProducts;

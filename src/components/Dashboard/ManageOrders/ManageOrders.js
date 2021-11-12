@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useAuth from '../../../hooks/useAuth';
-import useOrders from '../../../hooks/useOrders';
+import useProducts from '../../../hooks/useProducts';
 import defaultImg from '../../../images/body/default.png'
 const ManageOrders = () => {
     const { user } = useAuth();

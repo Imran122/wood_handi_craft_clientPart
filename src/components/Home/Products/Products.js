@@ -1,9 +1,9 @@
 import React from "react";
-import useOrders from "../../../hooks/useOrders";
+import useProducts from "../../../hooks/useProducts";
 
 import Product from "../Product/Product";
 const Products = () => {
-    const [products, setProducts] = useOrders();
+    const [products, setProducts] = useProducts();
     const productsItems = products.slice(0, 6)
 
     return (

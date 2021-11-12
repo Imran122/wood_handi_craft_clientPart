@@ -18,6 +18,7 @@ import AdminRoute from '../../Authentication/AdminRoute/AdminRoute';
 import AddProduct from '../AddProduct/AddProduct';
 import ManageOrders from '../ManageOrders/ManageOrders';
 import AdminHome from '../AdminHome/AdminHome';
+import ManageProducts from '../ManageProducts/ManageProducts';
 
 
 const Dashboard = () => {
@@ -90,6 +91,9 @@ const Dashboard = () => {
                                     <Link to={`${url}/manageOrders`} className="flex items-center space-x-2 py-2 px-4 transition duration-200 hover:bg-gray-700 hover:text-white">
                                         <span className="ml-6">Manage Orders</span>
                                     </Link>
+                                    <Link to={`${url}/manageProducts`} className="flex items-center space-x-2 py-2 px-4 transition duration-200 hover:bg-gray-700 hover:text-white">
+                                        <span className="ml-6">Manage Products</span>
+                                    </Link>
                                 </>
                             }
 
@@ -127,6 +131,9 @@ const Dashboard = () => {
                                     </AdminRoute>
                                     <AdminRoute path={`${path}/manageOrders`}>
                                         <ManageOrders></ManageOrders>
+                                    </AdminRoute>
+                                    <AdminRoute path={`${path}/manageProducts`}>
+                                        <ManageProducts></ManageProducts>
                                     </AdminRoute>
                                 </Switch>
 

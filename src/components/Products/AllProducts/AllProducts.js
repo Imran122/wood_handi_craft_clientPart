@@ -1,10 +1,10 @@
 import React from 'react';
-import useOrders from '../../../hooks/useOrders';
+import useProducts from '../../../hooks/useProducts';
 import Footer from '../../shared/Footer/Footer';
 import NavigationBar from '../../shared/NavigationBar/NavigationBar';
 import ProductData from '../ProductData/ProductData';
 const AllProducts = () => {
-    const [products, setProducts] = useOrders();
+    const [products, setProducts] = useProducts();
 
 
     return (
