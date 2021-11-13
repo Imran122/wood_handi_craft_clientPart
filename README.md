@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# A handicraft project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Website Live Link [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Available tech i have used
 
-In the project directory, you can run:
+:arrow_right: Node Js. <br/>
+:arrow_right: React Js. <br/>
+:arrow_right: Tailwind CSS. <br/>
+:arrow_right: Express Js. <br/>
+:arrow_right: Mongo Db. <br/>
+:arrow_right: Firebase Authentication. <br/>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `PROJECT DETAILS:`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+:arrow_right: It's a handicraft shop and every product made by woods.you will get various type of products in our shop.Its a responsive website. <br/>
 
-### `npm test`
+:arrow_right: In this project there are some features for users. You can Use `ADD REVIEW`, `MY ORDERS`, `PAYMENTS`.in my order you will only see your order and can `delete order`. <br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+:arrow_right: Users also can make review and give feedback from 1 to 5. And the data will show in home pages.<br/>
 
-### `npm run build`
+:arrow_right: In this project there are some features for Admin. You can Use `Manage All Orders`, `Add A Product`, `Make Admin`, `Manage Products` .in manage order you will only see all order and can perform some task like `shiped order`,`delete order`. <br/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+:arrow_right: Admin also post products and it will show in explore pages.Also he can manage products in "manage products page" and can delete products to delete it from explore pages. <br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+:arrow_right: Admin also can make a user to admin by email. <br/>
