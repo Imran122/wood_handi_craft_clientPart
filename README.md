@@ -21,10 +21,11 @@ Website Live Link [Create React App](https://github.com/facebook/create-react-ap
 
 :arrow_right: In this project there are some features for users. You can Use `ADD REVIEW`, `MY ORDERS`, `PAYMENTS`.in my order you will only see your order and can `delete order`. <br/>
 
-:arrow_right: Users also can make review and give feedback from 1 to 5. And the data will show in home pages.<br/>
+:arrow_right: Users also can make review and give feedback from 0 to 5. And the data will show in home pages.<br/>
 
 :arrow_right: In this project there are some features for Admin. You can Use `Manage All Orders`, `Add A Product`, `Make Admin`, `Manage Products` .in manage order you will only see all order and can perform some task like `shiped order`,`delete order`. <br/>
 
 :arrow_right: Admin also post products and it will show in explore pages.Also he can manage products in "manage products page" and can delete products to delete it from explore pages. <br/>
 
 :arrow_right: Admin also can make a user to admin by email. <br/>
+:arrow_right: Firebase authentication i have used for Email and password .Also for google authentication. <br/>
