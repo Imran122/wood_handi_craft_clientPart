@@ -20,7 +20,7 @@ const Purchase = () => {
     const [orderInfo, setOrderInfo] = useState(initialInfo)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://nameless-beyond-44160.herokuapp.com/products/${id}`)
             .then(response => response.json())
             .then(data => setProduct(data))
     }, [])
@@ -37,7 +37,7 @@ const Purchase = () => {
     //send order data to the DB
     const orderSubmit = e => {
         const newOrder = { ...orderInfo, product: product.name, price: product.price, status }
-        fetch('http://localhost:5000/orderlist', {
+        fetch('https://nameless-beyond-44160.herokuapp.com/orderlist', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

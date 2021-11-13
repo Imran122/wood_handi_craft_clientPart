@@ -18,7 +18,7 @@ const AddProduct = () => {
     //send order data to the DB
     const productDataSubmit = e => {
         const newProduct = { ...productInfo }
-        fetch('http://localhost:5000/products', {
+        fetch('https://nameless-beyond-44160.herokuapp.com/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

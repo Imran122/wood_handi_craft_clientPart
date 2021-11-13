@@ -9,7 +9,7 @@ const ManageProducts = () => {
     const handelDeleteOrder = id => {
         const proceed = window.confirm('Are you sure you want to delete?')
         if (proceed) {
-            const url = `http://localhost:5000/products/${id}`;
+            const url = `https://nameless-beyond-44160.herokuapp.com/products/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })

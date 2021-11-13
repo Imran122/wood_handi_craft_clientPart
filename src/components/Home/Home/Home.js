@@ -14,7 +14,7 @@ const Home = () => {
     const [reviews, setReviews] = useState([])
     //fetch data for all reviews
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://nameless-beyond-44160.herokuapp.com/reviews')
             .then(response => response.json())
             .then(data => setReviews(data))
     }, [])

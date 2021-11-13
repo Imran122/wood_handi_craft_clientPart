@@ -6,7 +6,7 @@ const ManageOrders = () => {
     const { user } = useAuth();
     const [ordersAll, setOrdersAll] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/adminAllOrder')
+        fetch('https://nameless-beyond-44160.herokuapp.com/adminAllOrder')
             .then(response => response.json())
             .then(data => setOrdersAll(data))
     }, [])
@@ -15,7 +15,7 @@ const ManageOrders = () => {
     const handelDeleteOrder = id => {
         const proceed = window.confirm('Are you sure you want to delete?')
         if (proceed) {
-            const url = `http://localhost:5000/orderlist/${id}`;
+            const url = `https://nameless-beyond-44160.herokuapp.com/orderlist/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })
@@ -33,7 +33,7 @@ const ManageOrders = () => {
     //method for change status pending to shiped
     const handelShipedOrder = id => {
 
-        const url = `http://localhost:5000/orderlist/${id}`;
+        const url = `https://nameless-beyond-44160.herokuapp.com/orderlist/${id}`;
         console.log(url)
         fetch(url, {
             method: 'PUT',

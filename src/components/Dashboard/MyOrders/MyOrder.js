@@ -6,7 +6,7 @@ const MyOrder = () => {
     const [allOrder, setAllOrder] = useState([]);
     //loadin specific user data
     useEffect(() => {
-        const url = `http://localhost:5000/orderlist?email=${user.email}`;
+        const url = `https://nameless-beyond-44160.herokuapp.com/orderlist?email=${user.email}`;
         fetch(url)
             .then((response) => response.json())
             .then(data => setAllOrder(data))
@@ -16,7 +16,7 @@ const MyOrder = () => {
     const handelDeleteOrder = id => {
         const proceed = window.confirm('Are you sure you want to delete?')
         if (proceed) {
-            const url = `http://localhost:5000/orderlist/${id}`;
+            const url = `https://nameless-beyond-44160.herokuapp.com/orderlist/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })

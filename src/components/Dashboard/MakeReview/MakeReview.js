@@ -23,7 +23,7 @@ const MakeReview = () => {
     const reviewSubmit = e => {
         const newReview = { ...reviewInfo }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://nameless-beyond-44160.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
