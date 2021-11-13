@@ -3,7 +3,7 @@ import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/solid'
 const FreqQuestion = () => {
     return (
-        <div className="w-full px-4 pt-16 faq-main mb-4" style={{ 'background': '#f4ede7' }}>
+        <div className="w-full px-4 pt-16 faq-main " style={{ 'background': '#f4ede7' }}>
             <div className="w-full max-w-md p-2  mx-auto bg-custom-light-choklet rounded-2xl">
                 <Disclosure>
                     {({ open }) => (
@@ -12,7 +12,7 @@ const FreqQuestion = () => {
                                 <span className="font-customFont text-black hover:text-black text-lg">What is your refund policy?</span>
                                 <ChevronUpIcon
                                     className={`${open ? 'transform rotate-180' : ''
-                                        } w-5 h-5 text-purple-500`}
+                                        } w-5 h-5 text-black`}
                                 />
                             </Disclosure.Button>
                             <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -29,7 +29,7 @@ const FreqQuestion = () => {
                                 <span className="font-customFont text-black hover:text-black text-lg">What is your delivery process?</span>
                                 <ChevronUpIcon
                                     className={`${open ? 'transform rotate-180' : ''
-                                        } w-5 h-5 text-purple-500`}
+                                        } w-5 h-5 text-black`}
                                 />
                             </Disclosure.Button>
                             <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -45,7 +45,7 @@ const FreqQuestion = () => {
                                 <span className="font-customFont text-black hover:text-black text-lg">Do you offer technical support?</span>
                                 <ChevronUpIcon
                                     className={`${open ? 'transform rotate-180' : ''
-                                        } w-5 h-5 text-purple-500`}
+                                        } w-5 h-5 text-black`}
                                 />
                             </Disclosure.Button>
                             <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">

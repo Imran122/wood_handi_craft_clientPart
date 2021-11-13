@@ -10,7 +10,9 @@ module.exports = {
         'custom-bg': '#a16826;',
         'custom-gray': '#f0f1f5',
         'custom-light-choklet': '#f4ede7',
-        'custom-deep-choklet': '#a79687'
+        'custom-deep-choklet': '#a79687',
+        'custom-black': '#333333',
+        'custom-nav': '#ebe0cc'
       },
       fontFamily: {
 

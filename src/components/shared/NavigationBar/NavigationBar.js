@@ -3,14 +3,15 @@ import './NavigationBar.css'
 import logo from '../.../../../../images/header/logo.png'
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import defaultImg from '../../../images/body/default.png'
 const NavigationBar = () => {
 
     const { user, logOut } = useAuth()
 
 
     return (
-        <div className="">
-            <nav className="nav flex flex-wrap items-center justify-between px-4">
+        <div className=" bg-custom-nav bg-opacity-100 overflow-hidden">
+            <nav className="nav flex flex-wrap items-center justify-between px-4 ">
                 <div className="flex flex-no-shrink items-center mr-6 py-3 text-grey-darkest">
 
                     <img className="w-52 h-14" src={logo} alt="" />
@@ -36,8 +37,32 @@ const NavigationBar = () => {
                             <li className="border-t md:border-none">
                                 <NavLink className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold" to="/dashboard">Dashboard</NavLink>
                             </li>
-                            <li className="border-t md:border-none">
-                                <button onClick={logOut} className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold">logout</button>
+
+
+                            <li className=" md:border-none flex inline">
+                                {user.photoURL ?
+                                    <img
+                                        className="h-8 w-8 rounded-full mt-2"
+                                        src={user.photoURL}
+                                        alt=""
+                                    />
+                                    :
+                                    <img
+                                        className="h-8 w-8 rounded-full mt-2"
+                                        src={defaultImg}
+                                        alt=""
+                                    />
+                                }
+
+                                <button onClick={logOut} className="block md:inline-block px-4 py-3 no-underline text-grey-darkest hover:text-grey-darker font-bold">
+                                    {user.displayName}
+
+                                </button>
+                                <button onClick={logOut}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                    </svg>
+                                </button>
                             </li>
                         </>
                         :
