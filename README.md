@@ -8,7 +8,10 @@ Website Live Link [Create React App](https://github.com/facebook/create-react-ap
 :arrow_right: React Js. <br/>
 :arrow_right: Tailwind CSS. <br/>
 :arrow_right: Express Js. <br/>
+:arrow_right: heroicons-react. <br/>
+:arrow_right: react-rating-stars-component. <br/>
 :arrow_right: Mongo Db. <br/>
+
 :arrow_right: Firebase Authentication. <br/>
 
 
