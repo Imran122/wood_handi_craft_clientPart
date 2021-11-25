@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import defaultImg from '../../../images/body/default.png'
 const MyOrder = () => {
@@ -6,7 +7,7 @@ const MyOrder = () => {
     const [allOrder, setAllOrder] = useState([]);
     //loadin specific user data
     useEffect(() => {
-        const url = `https://nameless-beyond-44160.herokuapp.com/orderlist?email=${user.email}`;
+        const url = `http://localhost:5000/orderlist?email=${user.email}`;
         fetch(url)
             .then((response) => response.json())
             .then(data => setAllOrder(data))
@@ -16,7 +17,7 @@ const MyOrder = () => {
     const handelDeleteOrder = id => {
         const proceed = window.confirm('Are you sure you want to delete?')
         if (proceed) {
-            const url = `https://nameless-beyond-44160.herokuapp.com/orderlist/${id}`;
+            const url = `http://localhost:5000/orderlist/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })
@@ -30,6 +31,8 @@ const MyOrder = () => {
                 })
         }
     }
+
+
     return (
         <>
             <div className="antialiased font-sans bg-gray-200">
@@ -86,6 +89,11 @@ const MyOrder = () => {
 
                                         Delete
                                     </th>
+                                    <th scope="col"
+                                        className="text-gray-dark border-gray border-b-2 border-t-2 border-gray-200 py-3 px-3 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+
+                                        Payment
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -138,6 +146,17 @@ const MyOrder = () => {
                                                 classes="[object Object]" onClick={() => handelDeleteOrder(order._id)}>
                                                 Delete
                                             </button>
+                                        </td>
+                                        <td className="py-4 px-6 border-b border-gray-200 text-gray-900 text-sm ">
+                                            <Link to={`/dashboard/payment/${order._id}`}> <button
+
+                                                className="relative inline-block px-3 py-1 font-semibold leading-tight rounded-full bg-red-200 text-red-900"
+                                                classes="[object Object]"
+                                                allOrder={allOrder}
+                                            >
+                                                PAY
+                                            </button>
+                                            </Link>
                                         </td>
                                     </tr>
                                 ))

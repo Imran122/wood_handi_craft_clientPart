@@ -5,9 +5,9 @@ const useProducts = () => {
     const [products, setProducts] = useState([])
     //fetch data from fajedb json file
     useEffect(() => {
-        fetch('https://nameless-beyond-44160.herokuapp.com/products')
+        fetch('http://localhost:5000/products')
             .then(response => response.json())
-            .then(data => setProducts(data))
+            .then(data => setProducts(data.products))
     }, [])
 
     return [products, setProducts]

@@ -21,6 +21,7 @@ import AdminHome from '../AdminHome/AdminHome';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import Payment from '../Payment/Payment';
 import defaultImg from '../../../images/body/default.png'
+import CheckOut from '../CheckOut/CheckOut';
 
 const Dashboard = () => {
     const { user } = useAuth()
@@ -209,8 +210,11 @@ const Dashboard = () => {
                                         <MyOrder></MyOrder>
                                     </Route>
 
-                                    <Route path={`${path}/payment`}>
+                                    <Route path={`${path}/payment/:orderId`}>
                                         <Payment></Payment>
+                                    </Route>
+                                    <Route path={`${path}/checkout/`}>
+                                        <CheckOut></CheckOut>
                                     </Route>
                                     <Route path={`${path}/makeReview`}>
                                         <MakeReview></MakeReview>
